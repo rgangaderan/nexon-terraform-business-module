@@ -1,4 +1,11 @@
-on: [push]
+name: Validate
+on:
+  pull_request:
+    # Sequence of patterns matched against refs/heads
+    branches:    
+      - main
+      - 'mona/octocat'
+      - 'releases/**'
 
 jobs:
   validate:

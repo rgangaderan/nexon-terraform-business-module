@@ -6,7 +6,6 @@ on:
       - main
       - 'mona/octocat'
       - 'releases/**'
-
 jobs:
   tflint:
     runs-on: ${{ matrix.os }}
