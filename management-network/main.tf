@@ -2,7 +2,7 @@
 # VPC Network
 ################################################################################
 module "vpc" {
-  source             = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/vpc?ref=v1.0.0"
+  source             = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/vpc?ref=v2.1.0"
   cidr               = var.cidr
   cidr_num_bits      = var.cidr_num_bits
   max_azs            = var.max_azs
