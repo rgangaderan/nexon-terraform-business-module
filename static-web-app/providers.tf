@@ -6,5 +6,8 @@ provider "aws" {
   }
 
   region  = var.region
-  profile = var.aws_profile
+  profile = var.profile
+
 }
+
+provider "tls" {}
