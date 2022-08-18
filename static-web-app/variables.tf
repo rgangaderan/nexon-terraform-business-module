@@ -182,7 +182,7 @@ variable "instances" {
 variable "create_elb" {
   description = "Create the elb or not"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "elb_name_prefix" {
