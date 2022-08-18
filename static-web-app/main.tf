@@ -3,7 +3,8 @@
 ################################################################################
 
 module "ec2-autoscaling" {
-  source = "git@github.com:rgangaderan/terraform-modules//aws/ec2-autoscaling?ref=v2.1.0"
+
+  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/ec2-autoscaling?ref=v2.1.0"
 
   image_id             = data.aws_ami.ubuntu.id
   instance_type        = var.instance_type
@@ -32,7 +33,8 @@ module "ec2-autoscaling" {
 ################################################################################
 
 module "elb" {
-  source = "git@github.com:rgangaderan/terraform-modules//aws/elb?ref=v2.1.0"
+
+  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/elb?ref=v2.1.0"
 
   create_elb = var.create_elb
 
@@ -67,7 +69,8 @@ module "elb" {
 ################################################################################
 
 module "elb_attachment" {
-  source = "git@github.com:rgangaderan/terraform-modules//aws/elb_attachment?ref=v2.1.0"
+
+  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/elb_attachment?ref=v2.1.0"
 
   create_attachment = var.create_elb
 
