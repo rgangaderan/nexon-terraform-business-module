@@ -2,9 +2,10 @@
 # EC2 Autoscaling Group
 ################################################################################
 
-module "ec2-autoscaling" {
+module "ec2_autoscaling" {
 
-  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws?ref=v2.1.1"
+  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/ec2_autoscaling?ref=v2.1.2"
+
 
   image_id             = data.aws_ami.ubuntu.id
   instance_type        = var.instance_type
@@ -23,6 +24,7 @@ module "ec2-autoscaling" {
   load_balancers       = [module.elb.elb_name]
 
   depends_on = [module.elb]
+
   providers = {
     aws = aws
   }
@@ -34,7 +36,7 @@ module "ec2-autoscaling" {
 
 module "elb" {
 
-  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws?ref=v2.1.1"
+  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/elb?ref=v2.1.2"
 
   create_elb = var.create_elb
 
@@ -56,12 +58,7 @@ module "elb" {
 
   elb_name_prefix = var.elb_name_prefix
 
-  tags = merge(
-    var.tags,
-    {
-      "Name" = format("%s", var.name)
-    },
-  )
+  tags = var.tag_info
 }
 
 ################################################################################
@@ -70,7 +67,7 @@ module "elb" {
 
 module "elb_attachment" {
 
-  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws?ref=v2.1.1"
+  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/elb_attachment?ref=v2.1.2"
 
   create_attachment = var.create_elb
 

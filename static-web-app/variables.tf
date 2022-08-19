@@ -182,7 +182,7 @@ variable "instances" {
 variable "create_elb" {
   description = "Create the elb or not"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "elb_name_prefix" {
@@ -194,4 +194,10 @@ variable "elb_name_prefix" {
 variable "vpc_cidr_block" {
   type        = list(any)
   description = "CIDR block to add in EC2 security group"
+}
+
+variable "tag_info" {
+  type        = map(any)
+  default     = {}
+  description = " A map of tags to assign to the resource."
 }
