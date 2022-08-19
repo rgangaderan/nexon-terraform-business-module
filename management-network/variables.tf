@@ -61,7 +61,8 @@ variable "stage" {
   }
 }
 
-variable "vpc_tag_info" {
+variable "tag_info" {
   type        = map(any)
-  description = "A map of tags to assign to the resource"
+  default     = {}
+  description = " A map of tags to assign to the resource."
 }
