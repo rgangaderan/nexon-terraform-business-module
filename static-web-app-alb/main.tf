@@ -3,7 +3,8 @@
 # Application LoadBalancer
 ################################################################################
 module "application_load_balancer" {
-  source = "/Users/rajee/Desktop/new-nexon/nexon-terraform-tech-module/aws/alb"
+
+  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/alb?ref=v2.2.0"
 
   network     = var.network
   allowed_ips = var.allowed_ips
