@@ -18,7 +18,7 @@ module "application_load_balancer" {
 
 module "ec2_autoscaling" {
 
-  source = "/Users/rajee/Desktop/new-nexon/nexon-terraform-tech-module/aws/ec2_autoscaling" #"git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/ec2_autoscaling?ref=v2.1.2"
+  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/ec2_autoscaling?ref=v2.2.0"
 
 
   image_id             = data.aws_ami.ubuntu.id
