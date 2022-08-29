@@ -17,7 +17,7 @@ module "application_load_balancer" {
 ################################################################################
 
 module "ec2" {
-  source = "/Users/rajee/Desktop/new-nexon/nexon-terraform-tech-module/aws/ec2_private"
+  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/ec2_private?ref=v2.3.0"
 
   image_id             = data.aws_ami.ubuntu.id
   instance_type        = var.instance_type
