@@ -12,20 +12,15 @@ variable "instance_type" {
   description = "The type of the instance."
 }
 
-variable "instance_count" {
-  type        = number
-  description = "Number of EC2 Instances to be launched."
-}
-
-variable "iam_instance_profile" {
-  type        = string
-  default     = ""
-  description = "The IAM Instance Profile to launch the instance with."
-}
-
 variable "name" {
   description = "Prefix used to create resource names."
   type        = string
+}
+
+variable "user_data" {
+  type        = string
+  default     = null
+  description = "The base64-encoded user data to provide when launching the instance."
 }
 
 variable "key_name" {
@@ -41,16 +36,19 @@ variable "stage" {
     error_message = "Invalid stage name - Stage must be one of \"development\", \"qa\", \"production\", \"staging\"."
   }
 }
-
 variable "cidr" {
   type        = string
   description = "VPC CIDR block to allow on security groups for private instance"
 }
 
+variable "volume_size" {
+  type        = string
+  description = "The size of the volume in gigabytes."
+}
 
-variable "vpc_cidr_block" {
-  type        = list(any)
-  description = "CIDR block to add in EC2 security group"
+variable "volume_type" {
+  type        = string
+  description = "The volume type. Can be standard, gp2, gp3, io1, io2, sc1 or st1 (Default: gp2)."
 }
 
 variable "subnet_id" {
@@ -58,6 +56,20 @@ variable "subnet_id" {
   description = "The VPC Subnet ID to associate."
 }
 
+variable "vpc_zone_identifier" {
+  type        = list(any)
+  description = "A list of subnet IDs to launch resources in."
+}
+
+variable "max_size" {
+  type        = string
+  description = "The maximum size of the Auto Scaling Group."
+}
+
+variable "min_size" {
+  type        = string
+  description = "The minimum size of the Auto Scaling Group."
+}
 
 ##########################
 # Application LoadBlancer
@@ -96,4 +108,9 @@ variable "host_sg_ingress_ports" {
     "443/tcp",
     "80/tcp"
   ]
+}
+
+variable "vpc_cidr_block" {
+  type        = list(any)
+  description = "CIDR block to add in EC2 security group"
 }
