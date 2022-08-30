@@ -16,11 +16,12 @@ variable "name" {
   description = "Prefix used to create resource names."
   type        = string
 }
-#
-#variable "secret_name" {
-#  type        = list(any)
-#  description = "Human readable name of the new secret."
-#}
+
+variable "user_data" {
+  type        = string
+  default     = null
+  description = "The base64-encoded user data to provide when launching the instance."
+}
 
 variable "key_name" {
   type        = string

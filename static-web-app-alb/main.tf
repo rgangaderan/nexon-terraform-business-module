@@ -25,7 +25,7 @@ module "ec2_autoscaling" {
   image_id             = data.aws_ami.ubuntu.id
   instance_type        = var.instance_type
   key_name             = var.key_name
-  user_data            = file("user_data.sh")
+  user_data            = var.user_data
   volume_size          = var.volume_size
   volume_type          = var.volume_type
   subnet_id            = var.subnet_id
