@@ -49,7 +49,10 @@ resource "aws_iam_role_policy" "secretmanager_policy" {
                 "s3:GetObject",
                 "s3:ListBucketMultipartUploads",
                 "s3:ListAllMyBuckets",
-                "s3:ListBucket"
+                "s3:ListBucket",
+                "secretsmanager:GetSecretValue",
+                "secretsmanager:GetResourcePolicy",
+                "secretsmanager:DescribeSecret"
             ],
             "Resource": "*"
         }
