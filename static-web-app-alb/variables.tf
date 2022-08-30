@@ -53,11 +53,6 @@ variable "vpc_cidr_block" {
   description = "CIDR block to add in EC2 security group"
 }
 
-variable "volume_type" {
-  type        = string
-  description = "The volume type. Can be standard, gp2, gp3, io1, io2, sc1 or st1 (Default: gp2)."
-}
-
 variable "subnet_id" {
   type        = string
   description = "The VPC Subnet ID to associate."
