@@ -17,12 +17,6 @@ variable "name" {
   type        = string
 }
 
-variable "user_data" {
-  type        = string
-  default     = null
-  description = "The base64-encoded user data to provide when launching the instance."
-}
-
 variable "key_name" {
   type        = string
   description = "The key name to use for the instance"
@@ -113,4 +107,24 @@ variable "host_sg_ingress_ports" {
 variable "vpc_cidr_block" {
   type        = list(any)
   description = "CIDR block to add in EC2 security group"
+}
+### User Data ###
+variable "dockerhub_repo" {
+  type        = string
+  description = "The Dockerhub repo name to pull and run the container"
+}
+
+variable "docker_version" {
+  type        = string
+  description = "The Dockerhub repo image version to pull and run the container"
+}
+
+variable "docker_user_name" {
+  type        = string
+  description = "The Dockerhub user name will be fetch from aws secret manager"
+}
+
+variable "docker_password" {
+  type        = string
+  description = "The Dockerhub password will be fetch from aws secret manager"
 }

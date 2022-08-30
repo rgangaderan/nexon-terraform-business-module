@@ -1,3 +1,15 @@
+################################################################################
+#local data for user_date
+################################################################################
+locals{
+  user_data = templatefile("${path.module}/user_data.tpl", {
+    dockerhub_repo        = var.dockerhub_repo
+    version               = var.docker_version
+    user_secret_key       = var.docker_user_name
+    password_secret_key   = var.docker_password
+    region                = var.region
+  })
+}
 
 ################################################################################
 # Application LoadBalancer
@@ -25,7 +37,7 @@ module "ec2_autoscaling" {
   image_id             = data.aws_ami.ubuntu.id
   instance_type        = var.instance_type
   key_name             = var.key_name
-  user_data            = var.user_data
+  user_data            = local.user_data
   volume_size          = var.volume_size
   volume_type          = var.volume_type
   subnet_id            = var.subnet_id
