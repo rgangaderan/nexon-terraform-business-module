@@ -1,13 +1,13 @@
 ################################################################################
 #local data for user_date
 ################################################################################
-locals{
+locals {
   user_data = templatefile("${path.module}/user_data.tpl", {
-    dockerhub_repo        = var.dockerhub_repo
-    version               = var.docker_version
-    user_secret_key       = var.docker_user_name
-    password_secret_key   = var.docker_password
-    region                = var.region
+    dockerhub_repo      = var.dockerhub_repo
+    version             = var.docker_version
+    user_secret_key     = var.docker_user_name
+    password_secret_key = var.docker_password
+    region              = var.region
   })
 }
 
