@@ -1,4 +1,6 @@
 # nexon-terraform-business-module
+
+<!-- BEGIN_TF_DOCS -->
 nexon-terraform-business-module
 
 This module will use to create real business requirement, based on technical need.
@@ -12,29 +14,5 @@ And other supporting modules such as AMI, IAM, Security Group only will create i
 
 Example: AMI ID that can be different from project to project. So, you can create AMI.tf in business layer and customize based on your need instead creating them on Main technology layer. 
 
-
-<!-- BEGIN_TF_DOCS -->
-## Requirements
-
-No requirements.
-
-## Providers
-
-No providers.
-
-## Modules
-
-No modules.
-
-## Resources
-
-No resources.
-
-## Inputs
-
-No inputs.
-
-## Outputs
-
-No outputs.
 <!-- END_TF_DOCS -->
+
