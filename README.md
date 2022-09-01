@@ -1,28 +1,23 @@
 # nexon-terraform-business-module
-nexon-terraform-business-module
 
 <!-- BEGIN_TF_DOCS -->
-## Requirements
+nexon-terraform-business-module
 
-No requirements.
+This module will use to create real business requirement, based on technical need.
+If we need to create any infrastructure and application related with business need we will use this module to call technology module located in https://github.com/rgangaderan/nexon-terraform-tech-module
 
-## Providers
+This business module will also create small resources.
 
-No providers.
+EX: if you need to create Autoscaling Group with Application Load Balancer you will call the main modules from technology layer in https://github.com/rgangaderan/nexon-terraform-tech-module
 
-## Modules
+And other supporting modules such as AMI, IAM, Security Group only will create in this Business Layer. The reason behind creating child modules in Business Layer is, because this child modules have only specific values that will unique to Business Layer
 
-No modules.
+Example: AMI ID that can be different from project to project. So, you can create AMI.tf in business layer and customize based on your need instead creating them on Main technology layer. 
 
-## Resources
+In this below Image main.tf has the main root module called from technology GitHub repo and other child supporting resources such as ami.tf, iam.tf security-group.tf will creating in this module it self.
 
-No resources.
+<img width="1188" alt="image" src="https://user-images.githubusercontent.com/36160986/187963833-326ce065-9a7c-4907-86bc-9dd0d823090b.png">
 
-## Inputs
 
-No inputs.
-
-## Outputs
-
-No outputs.
 <!-- END_TF_DOCS -->
+
