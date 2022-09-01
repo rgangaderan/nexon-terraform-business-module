@@ -14,5 +14,10 @@ And other supporting modules such as AMI, IAM, Security Group only will create i
 
 Example: AMI ID that can be different from project to project. So, you can create AMI.tf in business layer and customize based on your need instead creating them on Main technology layer. 
 
+In this below Image main.tf has the main root module called from technology GitHub repo and other child supporting resources such as ami.tf, iam.tf security-group.tf will creating in this module it self.
+
+<img width="1188" alt="image" src="https://user-images.githubusercontent.com/36160986/187963833-326ce065-9a7c-4907-86bc-9dd0d823090b.png">
+
+
 <!-- END_TF_DOCS -->
 
