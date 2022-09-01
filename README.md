@@ -13,10 +13,6 @@ And other supporting modules such as AMI, IAM, Security Group only will create i
 Example: AMI ID that can be different from project to project. So, you can create AMI.tf in business layer and customize based on your need instead creating them on Main technology layer. 
 
 
-
-![image](https://user-images.githubusercontent.com/36160986/187961853-857bf855-98ec-4f5f-a454-4d863bde63d3.png)
-
-
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
