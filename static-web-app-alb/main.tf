@@ -23,6 +23,10 @@ module "application_load_balancer" {
   tag_info    = var.tag_info
   name        = var.name
   stage       = var.stage
+  type        = var.type
+
+  security_groups = [aws_security_group.elb_public.id]
+  
 }
 
 ################################################################################

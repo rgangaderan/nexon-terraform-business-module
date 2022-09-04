@@ -77,6 +77,11 @@ variable "network" {
   })
 }
 
+variable "type" {
+  type        = string
+  description = "Type of target that you must specify when registering targets with this target group"
+}
+
 variable "allowed_ips" {
   description = "List of IPs allowed to access application over the external/public endpoint."
   type        = list(string)
