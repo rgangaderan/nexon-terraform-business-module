@@ -26,7 +26,7 @@ module "application_load_balancer" {
   type        = var.type
 
   security_groups = [aws_security_group.elb_public.id]
-  
+
 }
 
 ################################################################################
