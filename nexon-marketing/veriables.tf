@@ -115,6 +115,12 @@ variable "assign_public_ip" {
   description = "Assign a public IP address to the ENI (Fargate launch type only)."
 }
 
+variable "account_ids" {
+  type        = list(any)
+  description = "AWS Account Ids that can pull the ECR Images"
+}
+
+
 ##########################
 # Application LoadBlancer
 ##########################
