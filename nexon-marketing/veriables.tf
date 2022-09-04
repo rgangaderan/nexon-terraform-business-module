@@ -25,17 +25,17 @@ variable "name" {
 variable "db" {
   type = object(
     {
-      storage              = string
-      engine               = string
-      engine_version       = string
-      instance_class       = string
-      database_name        = string
-      database_username    = string
-      database_password    = string
-      parameter_group_name = string
-      skip_snapshot        = string
-      deletion_protection  = string
-      db_port              = number
+      storage               = string
+      engine                = string
+      engine_version        = string
+      instance_class        = string
+      database_name         = string
+      database_username_key = string
+      database_password_key = string
+      parameter_group_name  = string
+      skip_snapshot         = string
+      deletion_protection   = string
+      db_port               = number
     }
   )
 
@@ -43,14 +43,19 @@ variable "db" {
 }
 
 variable "private_cidr" {
-  type        = list
+  type        = list(any)
   description = "Private CIDR block to allow on security groups for RDS Instance"
 }
 
 
 variable "private_subnet_ids" {
-  type        = list
+  type        = list(any)
   description = "Private subnet IDs associate with RDS Instance Subnet Group"
+}
+
+variable "subnet_ids" {
+  type        = list(any)
+  description = "Subnet IDs associate with ECS Service."
 }
 
 variable "network" {
@@ -65,4 +70,68 @@ variable "tag_info" {
   type        = map(any)
   default     = {}
   description = " A map of tags to assign to the resource."
+}
+
+
+
+#############################
+# Variables for ECS
+#############################
+
+variable "ecs_configuration" {
+  description = "The object describing the ecs configurations."
+  type = object(
+    {
+      general_configuration = object({
+        cpu           = number
+        memory        = number
+        desired_count = number
+        launch_type   = string
+
+      })
+
+      ports = object({
+        container_port = number
+        host_port      = number
+
+      })
+
+
+    }
+  )
+}
+
+# variable "environment_variable" {
+#   type = object({
+#     name  = string
+#     value = string
+#   })
+#   description = "The environment variables to pass to the container. This is a list of maps"
+# }
+
+
+variable "assign_public_ip" {
+  type        = bool
+  description = "Assign a public IP address to the ENI (Fargate launch type only)."
+}
+
+##########################
+# Application LoadBlancer
+##########################
+
+variable "allowed_ips" {
+  description = "List of IPs allowed to access application over the external/public endpoint."
+  type        = list(string)
+}
+
+variable "alb_public_port" {
+  type        = number
+  default     = 80
+  description = "The ELB Security group prot for http traffic."
+}
+
+
+variable "type" {
+  type        = string
+  description = "Type of target that you must specify when registering targets with this target group"
 }
