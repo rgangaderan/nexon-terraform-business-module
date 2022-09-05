@@ -1,24 +1,24 @@
 ################################################################################
 # RDS Instance
 ################################################################################
-# module "rds" {
-#   source = "/Users/rajee/Desktop/nexon-new/nexon-terraform-tech-module/aws/rds-instance"
+module "rds" {
+  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/rds?ref=v2.3.2"
 
-#   db                 = var.db
-#   security_group     = [aws_security_group.rds_instance.id]
-#   name               = var.name
-#   stage              = var.stage
-#   private_subnet_ids = var.private_subnet_ids
-#   database_username  = data.aws_ssm_parameter.db_username.value
-#   database_password  = data.aws_ssm_parameter.db_password.value
+  db                 = var.db
+  security_group     = [aws_security_group.rds_instance.id]
+  name               = var.name
+  stage              = var.stage
+  private_subnet_ids = var.private_subnet_ids
+  database_username  = data.aws_ssm_parameter.db_username.value
+  database_password  = data.aws_ssm_parameter.db_password.value
 
-# }
+}
 
 ################################################################################
 # ECR Repository
 ################################################################################
 module "ecr-repository" {
-  source = "/Users/rajee/Desktop/nexon-new/nexon-terraform-tech-module/aws/ecr"
+  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/ecr?ref=v2.3.2"
 
   name  = var.name
   stage = var.stage
@@ -28,7 +28,7 @@ module "ecr-repository" {
 # ECS Configuration including ECS Cluster, ECS Service and Task Definition
 ################################################################################
 module "ecs" {
-  source            = "/Users/rajee/Desktop/nexon-new/nexon-terraform-tech-module/aws/ecs-service"
+  source            = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/ecs-service?ref=v2.3.2"
   ecs_configuration = var.ecs_configuration
   name              = var.name
   stage             = var.stage
@@ -38,14 +38,14 @@ module "ecs" {
   security_groups   = [aws_security_group.ecs.id]
   target_group_arn  = module.application_load_balancer.target_group_arns
 
+  environment = var.environment
+  secrets     = var.secrets
+
   ecs_task_execution_role = aws_iam_role.ecs_task_execution_role.arn
 
   task_role_arn = aws_iam_role.ecs_task_role.arn
 
   depends_on = [null_resource.initial_dummy_image]
-
-  # environment_variable = var.environment_variable
-
 
 }
 
@@ -54,7 +54,7 @@ module "ecs" {
 ################################################################################
 module "application_load_balancer" {
 
-  source = "/Users/rajee/Desktop/nexon-new/nexon-terraform-tech-module/aws/alb" #"git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/alb?ref=v2.2.0"
+  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/alb?ref=v2.3.2"
 
   network     = var.network
   allowed_ips = var.allowed_ips

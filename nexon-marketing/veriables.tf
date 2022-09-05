@@ -47,7 +47,6 @@ variable "private_cidr" {
   description = "Private CIDR block to allow on security groups for RDS Instance"
 }
 
-
 variable "private_subnet_ids" {
   type        = list(any)
   description = "Private subnet IDs associate with RDS Instance Subnet Group"
@@ -71,8 +70,6 @@ variable "tag_info" {
   default     = {}
   description = " A map of tags to assign to the resource."
 }
-
-
 
 #############################
 # Variables for ECS
@@ -101,14 +98,23 @@ variable "ecs_configuration" {
   )
 }
 
-# variable "environment_variable" {
-#   type = object({
-#     name  = string
-#     value = string
-#   })
-#   description = "The environment variables to pass to the container. This is a list of maps"
-# }
+variable "environment" {
+  type = list(object({
+    name  = string
+    value = string
+  }))
+  description = "The environment variables to pass to the container. This is a list of object."
+  default     = []
+}
 
+variable "secrets" {
+  type = list(object({
+    name      = string
+    valueFrom = string
+  }))
+  description = "The secrets to pass to the container. This is a list of object"
+  default     = []
+}
 
 variable "assign_public_ip" {
   type        = bool
@@ -119,7 +125,6 @@ variable "account_ids" {
   type        = list(any)
   description = "AWS Account Ids that can pull the ECR Images"
 }
-
 
 ##########################
 # Application LoadBlancer
@@ -135,7 +140,6 @@ variable "alb_public_port" {
   default     = 80
   description = "The ELB Security group prot for http traffic."
 }
-
 
 variable "type" {
   type        = string
