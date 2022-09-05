@@ -2,7 +2,7 @@
 # RDS Instance
 ################################################################################
 module "rds" {
-  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/rds?ref=v2.3.2"
+  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/rds-instance?ref=v2.3.2"
 
   db                 = var.db
   security_group     = [aws_security_group.rds_instance.id]
