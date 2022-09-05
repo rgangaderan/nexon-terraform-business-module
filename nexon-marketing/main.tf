@@ -38,14 +38,14 @@ module "ecs" {
   security_groups   = [aws_security_group.ecs.id]
   target_group_arn  = module.application_load_balancer.target_group_arns
 
+  environment = var.environment
+  secrets     = var.secrets
+
   ecs_task_execution_role = aws_iam_role.ecs_task_execution_role.arn
 
   task_role_arn = aws_iam_role.ecs_task_role.arn
 
   depends_on = [null_resource.initial_dummy_image]
-
-  # environment_variable = var.environment_variable
-
 
 }
 

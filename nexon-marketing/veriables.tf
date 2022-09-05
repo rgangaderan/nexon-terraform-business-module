@@ -101,13 +101,23 @@ variable "ecs_configuration" {
   )
 }
 
-# variable "environment_variable" {
-#   type = object({
-#     name  = string
-#     value = string
-#   })
-#   description = "The environment variables to pass to the container. This is a list of maps"
-# }
+variable "environment" {
+  type = list(object({
+    name  = string
+    value = string
+  }))
+  description = "The environment variables to pass to the container. This is a list of object."
+  default     = []
+}
+
+variable "secrets" {
+  type = list(object({
+    name      = string
+    valueFrom = string
+  }))
+  description = "The secrets to pass to the container. This is a list of object"
+  default     = []
+}
 
 
 variable "assign_public_ip" {

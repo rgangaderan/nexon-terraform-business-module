@@ -1,3 +1,7 @@
+###################### AWS region and account_id to create ssm policy ##############
+data "aws_caller_identity" "current" {}
+data "aws_region" "current" {}
+
 ###################################################################
 # Random String that help to create unique prefix for the resources
 ###################################################################
@@ -48,7 +52,9 @@ data "aws_iam_policy_document" "ecr_policy" {
   }
 }
 
-
+###########################################################
+# ECS Taks Execution Role
+###########################################################
 resource "aws_iam_role" "ecs_task_execution_role" {
   name = "ecs-execution-role-${random_string.random.result}"
 
@@ -68,6 +74,33 @@ resource "aws_iam_role" "ecs_task_execution_role" {
 }
 EOF
 }
+resource "aws_iam_role_policy" "ssm_policy" {
+  name = "ssm_policy-${random_string.random.result}"
+  role = aws_iam_role.ecs_task_execution_role.id
+
+  policy = <<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:DescribeParameters"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:GetParameters"
+            ],
+            "Resource": "arn:aws:ssm:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:parameter/*"
+        }
+    ]
+}
+EOF
+}
+
 
 resource "aws_iam_role" "ecs_task_role" {
   name = "ecs-task-role-${random_string.random.result}"
