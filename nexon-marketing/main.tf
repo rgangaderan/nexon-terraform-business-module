@@ -2,7 +2,7 @@
 # RDS Instance
 ################################################################################
 module "rds" {
-  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/rds-instance?ref=v2.3.2"
+  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/rds-instance?ref=v2.3.3"
 
   db                 = var.db
   security_group     = [aws_security_group.rds_instance.id]
@@ -18,7 +18,7 @@ module "rds" {
 # ECR Repository
 ################################################################################
 module "ecr-repository" {
-  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/ecr?ref=v2.3.2"
+  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/ecr?ref=v2.3.3"
 
   name  = var.name
   stage = var.stage
@@ -28,7 +28,7 @@ module "ecr-repository" {
 # ECS Configuration including ECS Cluster, ECS Service and Task Definition
 ################################################################################
 module "ecs" {
-  source            = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/ecs-service?ref=v2.3.2"
+  source            = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/ecs-service?ref=v2.3.3"
   ecs_configuration = var.ecs_configuration
   name              = var.name
   stage             = var.stage
@@ -54,7 +54,7 @@ module "ecs" {
 ################################################################################
 module "application_load_balancer" {
 
-  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/alb?ref=v2.3.2"
+  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/alb?ref=v2.3.3"
 
   network     = var.network
   allowed_ips = var.allowed_ips
