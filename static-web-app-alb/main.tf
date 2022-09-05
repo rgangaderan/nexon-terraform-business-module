@@ -25,7 +25,7 @@ module "application_load_balancer" {
   stage       = var.stage
   type        = var.type
 
-  security_groups = [aws_security_group.elb_public.id]
+  security_groups = [aws_security_group.alb_public.id]
 
 }
 

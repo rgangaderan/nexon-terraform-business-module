@@ -33,7 +33,7 @@ resource "aws_security_group_rule" "host-egress" {
   security_group_id = aws_security_group.instances.id
 }
 
-resource "aws_security_group_rule" "allow_elb" {
+resource "aws_security_group_rule" "allow_alb" {
   description = "The elb security group will added to autoscaling security-group as source for accessing private ec2 from public elb."
 
   type                     = "ingress"
