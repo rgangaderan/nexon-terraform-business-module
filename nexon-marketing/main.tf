@@ -46,7 +46,6 @@ module "ecs" {
   task_role_arn = aws_iam_role.ecs_task_role.arn
 
   depends_on = [null_resource.initial_dummy_image, module.rds]
-
 }
 
 ################################################################################
