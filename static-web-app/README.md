@@ -16,9 +16,9 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_ec2_autoscaling"></a> [ec2\_autoscaling](#module\_ec2\_autoscaling) | git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/ec2_autoscaling | v2.1.2 |
-| <a name="module_elb"></a> [elb](#module\_elb) | git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/elb | v2.1.2 |
-| <a name="module_elb_attachment"></a> [elb\_attachment](#module\_elb\_attachment) | git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/elb_attachment | v2.1.2 |
+| <a name="module_ec2_autoscaling"></a> [ec2\_autoscaling](#module\_ec2\_autoscaling) | git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/ec2_autoscaling | v2.3.3 |
+| <a name="module_elb"></a> [elb](#module\_elb) | git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/elb | v2.3.3 |
+| <a name="module_elb_attachment"></a> [elb\_attachment](#module\_elb\_attachment) | git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/elb_attachment | v2.3.3 |
 
 ## Resources
 
