@@ -17,8 +17,8 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_application_load_balancer"></a> [application\_load\_balancer](#module\_application\_load\_balancer) | git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/alb | v2.2.0 |
-| <a name="module_ec2_autoscaling"></a> [ec2\_autoscaling](#module\_ec2\_autoscaling) | git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/ec2_autoscaling | v2.2.0 |
+| <a name="module_application_load_balancer"></a> [application\_load\_balancer](#module\_application\_load\_balancer) | git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/alb | v2.3.3 |
+| <a name="module_ec2_autoscaling"></a> [ec2\_autoscaling](#module\_ec2\_autoscaling) | git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/ec2-autoscaling | v2.3.3 |
 
 ## Resources
 
@@ -29,7 +29,7 @@
 | [aws_iam_role_policy.secretmanager_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy) | resource |
 | [aws_security_group.alb_public](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
 | [aws_security_group.instances](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
-| [aws_security_group_rule.allow_elb](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
+| [aws_security_group_rule.allow_alb](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
 | [aws_security_group_rule.host-egress](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
 | [aws_security_group_rule.host-ingress](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
 | [random_string.random](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
@@ -58,6 +58,7 @@
 | <a name="input_stage"></a> [stage](#input\_stage) | The application deployment stage. | `string` | n/a | yes |
 | <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | The VPC Subnet ID to associate. | `string` | n/a | yes |
 | <a name="input_tag_info"></a> [tag\_info](#input\_tag\_info) | A map of tags to assign to the resource. | `map(any)` | `{}` | no |
+| <a name="input_type"></a> [type](#input\_type) | Type of target that you must specify when registering targets with this target group | `string` | n/a | yes |
 | <a name="input_volume_size"></a> [volume\_size](#input\_volume\_size) | The size of the volume in gigabytes. | `string` | n/a | yes |
 | <a name="input_volume_type"></a> [volume\_type](#input\_volume\_type) | The volume type. Can be standard, gp2, gp3, io1, io2, sc1 or st1 (Default: gp2). | `string` | n/a | yes |
 | <a name="input_vpc_cidr_block"></a> [vpc\_cidr\_block](#input\_vpc\_cidr\_block) | CIDR block to add in EC2 security group | `list(any)` | n/a | yes |
