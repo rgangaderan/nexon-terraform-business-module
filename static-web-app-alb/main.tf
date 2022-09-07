@@ -16,7 +16,7 @@ locals {
 ################################################################################
 module "application_load_balancer" {
 
-  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/alb?ref=v2.3.3"
+  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/alb?ref=v2.3.4"
 
   network     = var.network
   allowed_ips = var.allowed_ips
@@ -35,7 +35,7 @@ module "application_load_balancer" {
 
 module "ec2_autoscaling" {
 
-  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/ec2-autoscaling?ref=v2.3.3"
+  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/ec2-autoscaling?ref=v2.3.4"
 
 
   image_id             = data.aws_ami.ubuntu.id
