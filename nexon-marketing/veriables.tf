@@ -10,7 +10,6 @@ variable "region" {
 variable "stage" {
   description = "The application deployment stage."
   type        = string
-  default     = "development"
   validation {
     condition     = contains(["development", "qa", "production", "staging"], var.stage)
     error_message = "Invalid stage name - Stage must be one of \"development\", \"qa\", \"production\", \"staging\"."
