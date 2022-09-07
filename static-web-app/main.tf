@@ -67,7 +67,7 @@ module "elb" {
 
 module "elb_attachment" {
 
-  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/elb_attachment?ref=v2.3.3"
+  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/elb-attachment?ref=v2.3.3"
 
   create_attachment = var.create_elb
 
