@@ -52,8 +52,6 @@ module "elb" {
   access_logs  = var.access_logs
   health_check = var.health_check
 
-  elb_name_prefix = var.elb_name_prefix
-
   tags = var.tag_info
 }
 
