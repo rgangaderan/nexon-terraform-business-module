@@ -4,7 +4,7 @@
 
 module "ec2_autoscaling" {
 
-  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/ec2_autoscaling?ref=v2.3.3"
+  source = "git@github.com:rgangaderan/nexon-terraform-tech-module.git//aws/ec2-autoscaling?ref=v2.3.3"
 
 
   image_id             = data.aws_ami.ubuntu.id
