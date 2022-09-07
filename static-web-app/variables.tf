@@ -185,12 +185,6 @@ variable "create_elb" {
   default     = true
 }
 
-variable "elb_name_prefix" {
-  type        = string
-  default     = "nexon"
-  description = "Creates a unique name beginning with the specified prefix (cannot be longer than 6 characters)"
-}
-
 variable "vpc_cidr_block" {
   type        = list(any)
   description = "CIDR block to add in EC2 security group"
