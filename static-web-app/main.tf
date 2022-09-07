@@ -24,10 +24,6 @@ module "ec2_autoscaling" {
   load_balancers       = [module.elb.elb_name]
 
   depends_on = [module.elb]
-
-  providers = {
-    aws = aws
-  }
 }
 
 ################################################################################
