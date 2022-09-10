@@ -51,6 +51,8 @@ echo $password | sudo docker login -u $name --password-stdin
 sudo docker pull ${dockerhub_repo}:${version}	
 sudo docker run -d -p 80:80 --name webapp ${dockerhub_repo}:${version}
 ```
+## Diagram
+![image](https://user-images.githubusercontent.com/41107404/189477720-87a4853e-e0da-4ecc-8bcc-b56cc0a10c78.png)
 
 ## Requirements
 
