@@ -1,7 +1,5 @@
 <!-- BEGIN_TF_DOCS -->
-# nexon-terraform-business-module
-
-## Iteration 01.
+# Iteration 01.
 
 ### Manual Steps 
 Application hosted on EC2 Autoscaling Group with AWS ClassicLoadBalancer.
