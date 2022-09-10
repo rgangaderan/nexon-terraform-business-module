@@ -3,16 +3,23 @@
 
 ## Iteration 01.
 
+### Manual Steps 
 Application hosted on EC2 Autoscaling Group with AWS ClassicLoadBalancer.
+
+1. SSH Keypare
+mypuc.pem
+https://docs.aws.amazon.com/ground-station/latest/ug/create-ec2-ssh-key-pair.html
+
+2. S3 Bucket
+aritifacts-nexon-app
+![image](https://user-images.githubusercontent.com/41107404/189475745-b2909028-7e07-4046-949f-e08fa6909d75.png)
 
 This Application has a static web page and artifact stored in S3 bucket.
 
 s3://aritifacts-nexon-app/index.html
 
-
 We have Separate CI pipeline running in GitHub Action on 
 https://github.com/rgangaderan/nexon-application-CICD/blob/main/.github/workflows/ci-static-webapp-elb.yml
-
 
 The above workflow will copy the artifact (Index.html) to s3 bucket during the CI process and when we deploy this module. User_data will download the index.html to var/www/html and run the instance based on max nad min count defined in Autoscaling Group, it will also creating a Launch Template with all the information related to EC2
 
