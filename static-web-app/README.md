@@ -1,4 +1,38 @@
 <!-- BEGIN_TF_DOCS -->
+# nexon-terraform-business-module
+
+## Iteration 01.
+
+Application hosted on EC2 Autoscaling Group with AWS ClassicLoadBalancer.
+
+This Application has a static web page and artifact stored in S3 bucket.
+
+s3://aritifacts-nexon-app/index.html
+
+
+We have Separate CI pipeline running in GitHub Action on 
+https://github.com/rgangaderan/nexon-application-CICD/blob/main/.github/workflows/ci-static-webapp-elb.yml
+
+
+The above workflow will copy the artifact (Index.html) to s3 bucket during the CI process and when we deploy this module. User_data will download the index.html to var/www/html and run the instance based on max nad min count defined in Autoscaling Group, it will also creating a Launch Template with all the information related to EC2
+
+```
+#!/bin/bash
+
+# Update and install apache web server
+sudo apt-get update && sudo apt-get install apache2 -y
+
+# Instanll AWS CLI to access S3 Bucket for copy artifacts #
+sudo apt install awscli -y
+sudo -i
+
+# Copy artifact for web application #
+
+aws s3 cp s3://aritifacts-nexon-app/index.html /var/www/html/
+```
+![image](https://user-images.githubusercontent.com/41107404/189475619-e755855e-c75b-46c4-8cf8-e3badc0d0a5a.png)
+
+
 ## Requirements
 
 | Name | Version |
