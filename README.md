@@ -29,11 +29,7 @@ sudo -i
 
 aws s3 cp s3://aritifacts-nexon-app/index.html /var/www/html/
 ```
-![image](https://user-images.githubusercontent.com/41107404/189475552-fd7da1c5-5387-4e96-b0c9-a0e351ee1963.png)
-
-
-<!-- BEGIN_TF_DOCS -->
-nexon-terraform-business-module
+![image](https://user-images.githubusercontent.com/41107404/189475619-e755855e-c75b-46c4-8cf8-e3badc0d0a5a.png)
 
 This module will use to create real business requirement, based on technical need.
 If we need to create any infrastructure and application related with business need we will use this module to call technology module located in https://github.com/rgangaderan/nexon-terraform-tech-module
