@@ -1,4 +1,50 @@
 <!-- BEGIN_TF_DOCS -->
+Iteration 3.
+Finally, we have fully functioning web application created with AWS native solutions 
+  - RDS as Backend 
+  - ECS for Frontend (Fargate) with ALB
+  - ECR as Repository Manager to store Container Images
+
+We have created a separate CI Pipeline running on GHA, can be found under
+
+https://github.com/rgangaderan/nexon-application-CICD/blob/main/.github/workflows/ci-marekting.yml url
+
+This business module creates a the application with a Dummy Image 
+using null_reosurce local execution and dummy-image.sh
+
+```
+resource "null_resource" "initial_dummy_image" {
+    provisioner "local-exec" {
+        command = "${path.module}/dummy-image.sh"
+    
+        environment = {
+          REPOSITORY_URI = module.ecr-repository.url
+          PROFILE        = var.profile
+        }
+    
+        interpreter = [
+          "bash",
+          "-c"
+        ]
+    }
+}
+
+```
+
+```
+set -ex
+    
+region="$(echo "$REPOSITORY_URI" | cut -d. -f4)"
+aws ecr get-login-password --region "$region" --profile "$PROFILE" | docker login --username AWS --password-stdin "$REPOSITORY_URI"
+docker pull raj5444/webapp:v1.4
+docker tag raj5444/webapp:v1.4 "$REPOSITORY_URI":latest
+docker push "$REPOSITORY_URI":latest
+
+```
+Docker image with raj5444/webapp:v1.4 is already available in docker-hub.
+It will help to run the deployment successfully without failing on docker image not found error in ECS.
+
+
 ## Requirements
 
 | Name | Version |
