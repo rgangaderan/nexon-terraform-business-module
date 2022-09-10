@@ -1,4 +1,13 @@
 <!-- BEGIN_TF_DOCS -->
+#VPC Networks
+Creating Management Network VPC for your deployment, you can use this repository.
+But still these repos will not execute directly.
+
+We will be calling this repository from Terragrunt inorder to do the deployment based on the profile and stage defined in Terragrunt. 
+```
+https://github.com/rgangaderan/nexon-infra-and-application.git
+```
+
 ## Requirements
 
 No requirements.
