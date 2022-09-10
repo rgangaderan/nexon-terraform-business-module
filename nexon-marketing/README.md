@@ -44,6 +44,9 @@ docker push "$REPOSITORY_URI":latest
 Docker image with raj5444/webapp:v1.4 is already available in docker-hub.
 It will help to run the deployment successfully without failing on docker image not found error in ECS.
 
+## Diagram
+
+![image](https://user-images.githubusercontent.com/36160986/189478747-4055690b-1fa2-4ca4-9973-050126a54e7d.png)
 
 ## Requirements
 
