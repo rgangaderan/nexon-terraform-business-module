@@ -6,8 +6,8 @@ Application hosted on EC2 Autoscaling Group with AWS ApplicationLoadBalancer.
 ## Manual Steps
 1. SSH Keypare “mypuc.pem” https://docs.aws.amazon.com/ground-station/latest/ug/create-ec2-ssh-key-pair.html
 2. DockerHub Credentials stored in AWS SSM Parameter
-  - /docker/docker_user_name
-  - /docker/docker_password
+   - /docker/docker_user_name
+   - /docker/docker_password
   
 <img width="452" alt="image" src="https://user-images.githubusercontent.com/41107404/189477641-d61636f0-b81f-4417-9088-339761bdf840.png">
 
