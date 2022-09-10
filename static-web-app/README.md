@@ -12,7 +12,6 @@ https://docs.aws.amazon.com/ground-station/latest/ug/create-ec2-ssh-key-pair.htm
 
 2. S3 Bucket
 aritifacts-nexon-app
-![image](https://user-images.githubusercontent.com/41107404/189475745-b2909028-7e07-4046-949f-e08fa6909d75.png)
 
 This Application has a static web page and artifact stored in S3 bucket.
 
