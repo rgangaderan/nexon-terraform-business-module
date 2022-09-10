@@ -1,5 +1,5 @@
 <!-- BEGIN_TF_DOCS -->
-Iteration 3.
+# Iteration 3.
 Finally, we have fully functioning web application created with AWS native solutions 
   - RDS as Backend 
   - ECS for Frontend (Fargate) with ALB
